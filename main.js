@@ -1,40 +1,43 @@
-const form = document.querySelector('form');
-const table = document.createElement('table');
-const tbody = document.createElement('tbody');
-table.appendChild(tbody);
+const form = document.getElementById("registration-form");
+const table = document.getElementById("table");
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // запобігаємо перезавантаженню сторінки
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    const firstName = form.elements.firstName.value;
-    const lastName = form.elements.lastName.value;
-    const birthday = form.elements.birthday.value;
-    const gender = form.elements.gender.value;
-    const city = form.elements.city.value;
-    const address = form.elements.address.value;
-    const language = [];
+    const firstName = form.elements["first-name"].value;
+    const lastName = form.elements["last-name"].value;
+    const birthdate = form.elements["birthdate"].value;
+    const gender = form.elements["gender"].value;
+    const city = form.elements["city"].value;
+    const address = form.elements["address"].value;
+    const languages = [];
+    const languageCheckboxes = form.elements["language"];
+    for (let i = 0; i < languageCheckboxes.length; i++) {
+        if (languageCheckboxes[i].checked) {
+            languages.push(languageCheckboxes[i].value);
+        }
+    }
 
-    const languageInputs = form.querySelectorAll('input[name="language"]:checked');
-    languageInputs.forEach(function(input) {
-        language.push(input.value);
-    });
-
-    const row = tbody.insertRow();
-    const cell1 = row.insertCell();
-    cell1.textContent = firstName;
-    const cell2 = row.insertCell();
-    cell2.textContent = lastName;
-    const cell3 = row.insertCell();
-    cell3.textContent = birthday;
-    const cell4 = row.insertCell();
-    cell4.textContent = gender;
-    const cell5 = row.insertCell();
-    cell5.textContent = city;
-    const cell6 = row.insertCell();
-    cell6.textContent = address;
-    const cell7 = row.insertCell();
-    cell7.textContent = language.join(', ');
-
-    form.reset();
-    document.body.appendChild(table);
+    table.innerHTML = `
+    <table>
+      <tr>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>Дата народження</th>
+        <th>Стать</th>
+<th>Місто</th>
+<th>Адреса</th>
+<th>Мови, якими володіє</th>
+</tr>
+<tr>
+<td>${firstName}</td>
+<td>${lastName}</td>
+<td>${birthdate}</td>
+<td>${gender}</td>
+<td>${city}</td>
+<td>${address}</td>
+<td>${languages.join(", ")}</td>
+</tr>
+</table>
+`;
 });
