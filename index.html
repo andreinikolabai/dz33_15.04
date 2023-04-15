@@ -8,60 +8,44 @@
     <title>ДЗ 33</title>
 </head>
 <body>
-<form id="registration-form">
-    <label for="first-name">Ім'я:</label>
-    <input type="text" id="first-name" name="first-name"><br>
+<form>
+    <label for="firstName">Ім'я:</label>
+    <input type="text" id="firstName" name="firstName" required><br><br>
 
-    <label for="last-name">Прізвище:</label>
-    <input type="text" id="last-name" name="last-name"><br>
+    <label for="lastName">Прізвище:</label>
+    <input type="text" id="lastName" name="lastName" required><br><br>
 
     <label for="birthday">Дата народження:</label>
-    <input type="text" id="birthday" name="birthday"><br>
+    <input type="text" id="birthday" name="birthday" required><br><br>
 
-    <label>Стать:</label>
-    <input type="radio" id="male" name="gender" value="male">
-    <label for="male">Чоловік</label>
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Жінка</label><br>
+    <label>Стать:</label><br>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Чоловік</label><br>
+    <input type="radio" id="female" name="gender" value="female" required>
+    <label for="female">Жінка</label><br><br>
 
     <label for="city">Місто:</label>
-    <select id="city" name="city">
-        <option value="">-- Оберіть місто --</option>
+    <select id="city" name="city" required>
+        <option value="">Виберіть місто</option>
         <option value="kyiv">Київ</option>
         <option value="lviv">Львів</option>
         <option value="kharkiv">Харків</option>
         <option value="odessa">Одеса</option>
-    </select><br>
+    </select><br><br>
 
-    <label for="address">Адреса:</label>
-    <textarea id="address" name="address"></textarea><br>
+    <label for="address">Адреса:</label><br>
+    <textarea id="address" name="address" required></textarea><br><br>
 
-    <label>Мови, якими володіє:</label>
-    <input type="checkbox" id="english" name="languages[]" value="english">
-    <label for="english">Англійська</label>
-    <input type="checkbox" id="french" name="languages[]" value="french">
-    <label for="french">Французька</label>
-    <input type="checkbox" id="german" name="languages[]" value="german">
-    <label for="german">Німецька</label><br>
+    <label>Мови, якими володієте:</label><br>
+    <input type="checkbox" id="ukr" name="language" value="ukr">
+    <label for="ukr">Українська</label><br>
+    <input type="checkbox" id="rus" name="language" value="rus">
+    <label for="rus">Російська</label><br>
+    <input type="checkbox" id="eng" name="language" value="eng">
+    <label for="eng">Англійська</label><br><br>
 
-    <button type="button" id="save-btn">Зберегти</button>
+    <button type="submit">Зберегти</button>
 </form>
-
-<table id="data-table">
-    <thead>
-    <tr>
-        <th>Ім'я</th>
-        <th>Прізвище</th>
-        <th>Дата народження</th>
-        <th>Стать</th>
-        <th>Місто</th>
-        <th>Адреса</th>
-        <th>Мови, якими володіє</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
 <script src="main.js"></script>
 </body>
 </html>

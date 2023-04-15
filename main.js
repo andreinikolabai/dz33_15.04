@@ -1,27 +1,40 @@
-const form = document.querySelector('#registration-form');
-const tableBody = document.querySelector('#data-table tbody');
-const saveBtn = document.querySelector('#save-btn');
+const form = document.querySelector('form');
+const table = document.createElement('table');
+const tbody = document.createElement('tbody');
+table.appendChild(tbody);
 
-saveBtn.addEventListener('click', () => {
-    const firstName = form.querySelector('#first-name').value;
-    const lastName = form.querySelector('#last-name').value;
-    const birthday = form.querySelector('#birthday').value;
-    const gender = form.querySelector('input[name="gender"]:checked').value;
-    const city = form.querySelector('#city').value;
-    const address = form.querySelector('#address').value;
-    const languages = form.querySelectorAll('input[name="languages[]"]:checked');
-    const languagesArr = [];
-    languages.forEach(language => {
-        languagesArr.push(language.value);
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // запобігаємо перезавантаженню сторінки
+
+    const firstName = form.elements.firstName.value;
+    const lastName = form.elements.lastName.value;
+    const birthday = form.elements.birthday.value;
+    const gender = form.elements.gender.value;
+    const city = form.elements.city.value;
+    const address = form.elements.address.value;
+    const language = [];
+
+    const languageInputs = form.querySelectorAll('input[name="language"]:checked');
+    languageInputs.forEach(function(input) {
+        language.push(input.value);
     });
 
-// створюємо новий рядок в таблиці з отриманими даними
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = <td>${firstName}</td> <td>${lastName}</td> <td>${birthday}</td> <td>${gender}</td> <td>${city}</td> <td>${address}</td> <td>${languagesArr.join(', ')}</td> ;
+    const row = tbody.insertRow();
+    const cell1 = row.insertCell();
+    cell1.textContent = firstName;
+    const cell2 = row.insertCell();
+    cell2.textContent = lastName;
+    const cell3 = row.insertCell();
+    cell3.textContent = birthday;
+    const cell4 = row.insertCell();
+    cell4.textContent = gender;
+    const cell5 = row.insertCell();
+    cell5.textContent = city;
+    const cell6 = row.insertCell();
+    cell6.textContent = address;
+    const cell7 = row.insertCell();
+    cell7.textContent = language.join(', ');
 
-// додаємо новий рядок в таблицю
-    tableBody.appendChild(newRow);
-
-// очищуємо форму
     form.reset();
+    document.body.appendChild(table);
 });
