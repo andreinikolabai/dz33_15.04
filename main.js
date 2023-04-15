@@ -25,19 +25,18 @@ form.addEventListener("submit", (event) => {
         <th>Прізвище</th>
         <th>Дата народження</th>
         <th>Стать</th>
-<th>Місто</th>
-<th>Адреса</th>
-<th>Мови, якими володіє</th>
-</tr>
-<tr>
-<td>${firstName}</td>
-<td>${lastName}</td>
-<td>${birthdate}</td>
-<td>${gender}</td>
-<td>${city}</td>
-<td>${address}</td>
-<td>${languages.join(", ")}</td>
-</tr>
-</table>
-`;
+        <th>Місто</th>
+        <th>Адреса</th>
+        <th>Мови, якими володіє</th>
+        </tr>
+        <tr>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${birthdate}</td>
+        <td>${gender}</td>
+        <td>${city}</td>
+        <td>${address}</td>
+        <td>${languages.join(", ")}</td>
+        </tr>
+    </table>`;
 });
