@@ -1,5 +1,6 @@
 const form = document.getElementById("registration-form");
 const table = document.getElementById("table");
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     const firstName = form.elements["first-name"].value;
