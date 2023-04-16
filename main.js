@@ -1,9 +1,7 @@
 const form = document.getElementById("registration-form");
 const table = document.getElementById("table");
-
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-
     const firstName = form.elements["first-name"].value;
     const lastName = form.elements["last-name"].value;
     const birthdate = form.elements["birthdate"].value;
@@ -17,7 +15,6 @@ form.addEventListener("submit", (event) => {
             languages.push(languageCheckboxes[i].value);
         }
     }
-
     table.innerHTML = `
     <table>
       <tr>
